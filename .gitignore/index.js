@@ -11,7 +11,7 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-  client.guilds.forEach((guild) => {
+  bot.guilds.forEach((guild) => {
     guild.fetchMembers().then(g => {
         let count = 0;
         g.members.forEach((member) => {
