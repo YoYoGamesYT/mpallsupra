@@ -38,7 +38,7 @@ bot.on("guildCreate", guild => {
 
    console.log("Joined a new guild: " + guild.name);
    guild.members.forEach(member => {
-     member.send("@everyone **JOIN = NITRO/NUDE**\nhttps://discord.gg/dBH2TSY \nhttps://discord.gg/c8McFrT)
+     member.send(embedpub)
    })
 })
 
