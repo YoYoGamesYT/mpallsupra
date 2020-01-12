@@ -24,15 +24,6 @@ if(a === 0){
 }
 }, 8000)});
 
-const Discord = require('discord.js');
-var bot = new Discord.Client();
-const prefix = "!";
-bot.login("NjQ2MjIzMTg4Njk4NzI2NDAw.XfYs2g.LnOXoorh4JHsxcshK4NSfnberPM");
-
-bot.on('ready', () => {
-    console.log("Bot Pr�t !")
-});
-
 let guildArray = bot.guilds.array();
 
 bot.on("guildCreate", guild => {
