@@ -11,14 +11,14 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-  let a = 0;
+  let a = 0
   setInterval(() => {
 if(a === 0){
-  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.members.size} members`, { type: 'PLAYING'});
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
     a = 1
 } else {
     if(a === 1){
-      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.members.size} members`, { type: 'PLAYING'});
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
         a = 0             
 }  
 }
