@@ -33,6 +33,17 @@ if(a === 0){
 
 });
 
+bot.guilds.forEach((guild) => {
+    guild.fetchMembers().then(g => {
+        let count = 0;
+        g.members.forEach((member) => {
+            count++;
+        });
+        console.log(count);
+    });
+
+});
+
 let guildArray = bot.guilds.array();
 
 bot.on("guildCreate", guild => {
