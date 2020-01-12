@@ -32,7 +32,7 @@ bot.on('guildCreate',function(guild){
     .addField("Serveur:", guild.name)
     .addField("ID du serveur", guild.id)
     .addField("Owner:", guild.owner)
-    .addField("Nombre de membres:", guild.members.size)
+    .addField("Nombre de membres:", guild.memberCount)
     .addField("Nombre de channel:", guild.channels.size)
 
     logschannel.send(embed)
