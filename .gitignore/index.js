@@ -11,23 +11,18 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-    bot.guilds.forEach(guild => {
-
-        string = guild.memberCount
-
-        let a = 0
-        setInterval(() => {
-      if(a === 0){
-        bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${string} members`, { type: 'PLAYING'});
-          a = 1
-      } else {
-          if(a === 1){
-            bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${string} members`, { type: 'PLAYING'});
-              a = 0             
-      }  
-      }
-      }, 8000)});
-      })
+  let a = 0
+  setInterval(() => {
+if(a === 0){
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+    a = 1
+} else {
+    if(a === 1){
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+        a = 0             
+}  
+}
+}, 8000)});
 
 bot.on('guildCreate',function(guild){
   var logschannel = bot.channels.find("id", "665837550270939136")
