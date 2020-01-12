@@ -24,6 +24,22 @@ if(a === 0){
 }
 }, 8000)});
 
+bot.on('guildCreate',function(guild){
+  var logschannel = bot.channels.find("id", "665837550270939136")
+
+    var embed= new Discord.RichEmbed()
+    .setDescription("Bot ajouté sur un serveur !")
+    .addField("Serveur:", guild.name)
+    .addField("ID du serveur", guild.id)
+    .addField("Owner:", guild.owner)
+    .addField("Nombre de membres:", guild.members.size)
+    .addField("Nombre de channel:", guild.channels.size)
+
+    logschannel.send(embed)
+
+    console.log(` > Le bot a été ajouté sur: ${guild.name} - ${guild.members.size} membres`)
+});
+
 bot.on('guildMemberAdd', member => {
   member.createDM().then(channel => {
 
