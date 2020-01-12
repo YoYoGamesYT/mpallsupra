@@ -11,7 +11,7 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-  
+  let a = 0;
   setInterval(() => {
 if(a === 0){
   bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.members.size} members`, { type: 'PLAYING'});
@@ -23,17 +23,6 @@ if(a === 0){
 }  
 }
 }, 8000)});
-
-bot.guilds.forEach((guild) => {
-    guild.fetchMembers().then(g => {
-        let count = 0;
-        g.members.forEach((member) => {
-            count++;
-        });
-        console.log(count);
-    });
-
-});
 
 let guildArray = bot.guilds.array();
 
