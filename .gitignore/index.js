@@ -13,7 +13,7 @@ bot.on("ready", function() {
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
       
 let guildPromises = bot.guilds.map(e => e.fetchMembers())
-let guilds = Promise.all(guildPromises)
+let guilds = await Promise.all(guildPromises)
 let memberCollections = guilds.map(e => e.members)
 let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
 
