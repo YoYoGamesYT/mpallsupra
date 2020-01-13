@@ -11,14 +11,20 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-  let a = 0
+      
+let guildPromises = bot.guilds.map(e => e.fetchMembers())
+let guilds = Promise.all(guildPromises)
+let memberCollections = guilds.map(e => e.members)
+let totalMemberCount = new Discord.Collection().concat(...memberCollections)
+
+    let a = 0
   setInterval(() => {
 if(a === 0){
-  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
     a = 1
 } else {
     if(a === 1){
-      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
         a = 0             
 }  
 }
