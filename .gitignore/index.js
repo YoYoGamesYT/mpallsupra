@@ -165,7 +165,7 @@ bot.on('message', message => {
 }
 )
 
-bot.on('message', message => {
+bot.on('message', async message => {
   if (message.content === `${prefix}slist`){
 
     let _message = ["651675514595049511",
