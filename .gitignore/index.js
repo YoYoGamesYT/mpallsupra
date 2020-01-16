@@ -206,11 +206,11 @@ bot.on('message', async message => {
     let a = 0
   setInterval(() => {
 if(a === 0){
-  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
     a = 1
 } else {
     if(a === 1){
-      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
         a = 0             
 }  
 }
