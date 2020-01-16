@@ -181,7 +181,7 @@ bot.on('message', message => {
 }
 )
 
-bot.on('message', message => {
+/*bot.on('message', message => {
   if (message.content === `${prefix}reload`){
 
     let _message = ["651675514595049511",
@@ -193,4 +193,25 @@ bot.on('message', message => {
     console.log(`${bot.guilds.size} servers | ${bot.users.size} members\n-------------------------`);
     console.log(bot.guilds.map(r => r.name + ` | ${r.memberCount} members`));
   }
-});
+});*/
+
+bot.on('message', async message => {
+  if (message.content === `${prefix}reload`){
+
+    let guildPromises = bot.guilds.map(e => e.fetchMembers())
+    let guilds = await Promise.all(guildPromises)
+    let memberCollections = guilds.map(e => e.members)
+    let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
+
+    let a = 0
+  setInterval(() => {
+if(a === 0){
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+    a = 1
+} else {
+    if(a === 1){
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+        a = 0             
+}  
+}
+}, 8000)}});
