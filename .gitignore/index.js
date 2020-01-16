@@ -14,25 +14,24 @@ console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------
 });
        
 bot.on('ready', async () => {
-  if (message.content === `${prefix}reload`){
 
-    let guildPromises = bot.guilds.map(e => e.fetchMembers())
-    let guilds = await Promise.all(guildPromises)
-    let memberCollections = guilds.map(e => e.members)
-    let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
+  let guildPromises = bot.guilds.map(e => e.fetchMembers())
+  let guilds = await Promise.all(guildPromises)
+  let memberCollections = guilds.map(e => e.members)
+  let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
 
-    let a = 0
-  setInterval(() => {
+  let a = 0
+setInterval(() => {
 if(a === 0){
-  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
-    a = 1
+bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+  a = 1
 } else {
-    if(a === 1){
-      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
-        a = 0             
+  if(a === 1){
+    bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+      a = 0             
 }  
 }
-}, 8000)}});
+}, 8000)});
 
 let guildArray = bot.guilds.array();
 
