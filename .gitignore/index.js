@@ -11,24 +11,28 @@ bot.on("ready", function() {
                                     BOT ALLUMER
 `);
 console.log('\x1B[31m%s\x1B[0m', '«--------------------------------------------------------» ▲ «--------------------------------------------------------»')
-      
-// let guildPromises = bot.guilds.map(e => e.fetchMembers())
-// let guilds = await Promise.all(guildPromises)
-// let memberCollections = guilds.map(e => e.members)
-// let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
+});
+       
+bot.on('ready', async () => {
+  if (message.content === `${prefix}reload`){
+
+    let guildPromises = bot.guilds.map(e => e.fetchMembers())
+    let guilds = await Promise.all(guildPromises)
+    let memberCollections = guilds.map(e => e.members)
+    let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
 
     let a = 0
   setInterval(() => {
 if(a === 0){
-  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+  bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
     a = 1
 } else {
     if(a === 1){
-      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${bot.users.size} members`, { type: 'PLAYING'});
+      bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
         a = 0             
 }  
 }
-}, 8000)});
+}, 8000)}});
 
 let guildArray = bot.guilds.array();
 
@@ -195,7 +199,7 @@ bot.on('message', message => {
   }
 });*/
 
-bot.on('message', async message => {
+/*bot.on('message', async message => {
   if (message.content === `${prefix}reload`){
 
     let guildPromises = bot.guilds.map(e => e.fetchMembers())
@@ -214,4 +218,4 @@ if(a === 0){
         a = 0             
 }  
 }
-}, 8000)}});
+}, 8000)}});*/
