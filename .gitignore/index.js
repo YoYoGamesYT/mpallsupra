@@ -23,11 +23,11 @@ bot.on('ready', async () => {
   let a = 0
 setInterval(() => {
 if(a === 0){
-bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
   a = 1
 } else {
   if(a === 1){
-    bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${count} members`, { type: 'PLAYING'});
+    bot.user.setActivity(`.nitro | ${bot.guilds.size} servers | ${totalMemberCount} members`, { type: 'PLAYING'});
       a = 0             
 }  
 }
@@ -172,10 +172,15 @@ bot.on('message', message => {
                    "6647110742423896084"]
 
     if(message.author.id =! _message) return message.channel.send("Tu ne peux pas utliser cette commande.")
+      
+    let guildPromises = bot.guilds.map(e => e.fetchMembers())
+    let guilds = await Promise.all(guildPromises)
+    let memberCollections = guilds.map(e => e.members)
+    let totalMemberCount = (new Discord.Collection().concat(...memberCollections)).size
 
     let serverembed = new Discord.RichEmbed()
     .setTitle("Serverlist: ")
-    .addField(`${bot.guilds.size} servers | ${bot.users.size} members`, 'rawé chaud tavu frérot')
+    .addField(`${bot.guilds.size} servers | ${totalMemberCount} members`, 'rawé chaud tavu frérot')
     .setColor("cb72da")
 
     message.channel.send(serverembed);
@@ -198,7 +203,7 @@ bot.on('message', message => {
   }
 });*/
 
-/*bot.on('message', async message => {
+bot.on('message', async message => {
   if (message.content === `${prefix}reload`){
 
     let guildPromises = bot.guilds.map(e => e.fetchMembers())
@@ -217,4 +222,4 @@ if(a === 0){
         a = 0             
 }  
 }
-}, 8000)}});*/
+}, 8000)}});
