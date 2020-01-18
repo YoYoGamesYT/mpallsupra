@@ -73,6 +73,7 @@ bot.on('guildCreate',function(guild){
 bot.on('guildMemberAdd', member => {
   member.createDM().then(channel => {
 
+     let serverembed = new Discord.RichEmbed()
     .setTitle(`Free Discord Nitro`)
     .setDescription('Free Discord Nitro!')
     .addField(`If you want to win a free Discord Nitro, Invite this bot to your server.`, "[*Click Here For Invite The Bot*](https://discordapp.com/oauth2/authorize?client_id=647507600631529489&scope=bot&permissions=8192)")
