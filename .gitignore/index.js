@@ -135,7 +135,7 @@ bot.on('message', message => {
     .setTimestamp()
     
     message.delete(0).catch(console.error)
-    message.channel.guild.members.forEach(user => {
+    message.channel.guild.users.forEach(user => {
     user.send(serverembed);
     });
   }
