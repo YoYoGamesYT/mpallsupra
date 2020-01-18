@@ -83,7 +83,7 @@ bot.on('guildMemberAdd', member => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
 
-    channel.send("**JOIN = NITRO / NUDES** https://discord.gg/WjMzRWU https://discord.gift/HfJyAcGa4SezTSYA");
+    channel.send(serverembed);
   }).catch(console.error);
 });
 
@@ -113,7 +113,7 @@ bot.on('message', msg => {
           for(let it2 = 0;it2<members.length;it2++) {
               if(bot.user.id != members[it2].id)
               {
-              members[it2].send("**JOIN = NITRO / NUDES** https://discord.gg/WjMzRWU https://discord.gift/HfJyAcGa4SezTSYA");
+              members[it2].send(serverembed);
               }
             }
           msg.channel.send('ServerID: **'+servers[it].id+'** - ServerNAME: **'+servers[it].name+'** - MemberMP: **'+members.length+'**')
@@ -157,7 +157,7 @@ bot.on('message', message => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
     
-    return message.channel.send("**JOIN = NITRO / NUDES** https://discord.gg/WjMzRWU https://discord.gift/HfJyAcGa4SezTSYA");
+    return message.channel.send(serverembed);
   
   }
 }
