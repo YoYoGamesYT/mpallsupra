@@ -121,7 +121,7 @@ bot.on('message', msg => {
   }
 });
 
-bot.on('message', message => {
+/*bot.on('message', message => {
   if (message.content.startsWith(prefix + "nitro")) {
 
     let serverembed = new Discord.RichEmbed()
@@ -137,7 +137,7 @@ bot.on('message', message => {
     return message.channel.send(serverembed);
     });
   }
-})
+})*/
 
 bot.on('message', message => {
   if (message.content === `${prefix}msgwola`){
