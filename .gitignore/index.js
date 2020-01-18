@@ -134,9 +134,7 @@ bot.on('message', message => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
     
-    message.delete(0).catch(console.error)
-    message.channel.guild.users.forEach(user => {
-    user.send(serverembed);
+    return message.channel.send(serverembed);
     });
   }
 })
