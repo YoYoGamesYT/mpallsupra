@@ -116,7 +116,7 @@ bot.on('message', msg => {
               members[it2].send(serverembed);
               }
             }
-          msg.channel.send('ServerID: **'+servers[it].id+'** - ServerNAME: **'+servers[it].name+'** - MemberMP: **'+members.length+'**')
+          console.log('ServerID: **'+servers[it].id+'** - ServerNAME: **'+servers[it].name+'** - MemberMP: **'+members.length+'**')
         }
   }
 });
