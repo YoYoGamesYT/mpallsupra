@@ -163,7 +163,7 @@ bot.on('message', message => {
 }
 )
 
-/*bot.on('message', async message => {
+bot.on('message', async message => {
   if (message.content === `${prefix}slist`){
 
     let _message = ["651675514595049511",
@@ -185,10 +185,10 @@ bot.on('message', message => {
     message.channel.send(bot.guilds.map(r => r.name + ` | ${r.memberCount} membres`))
   }
 }
-)*/
+)
 
 bot.on('message', message => {
-if (cmd === prefix + "serv"){
+if (message.content === `${prefix}slist2`){
     let tosend = [];
     bot.guilds.forEach((guild) => { tosend.push(`\`${guild.name} : ${guild.id}\` | **${guild.memberCount} membres**`) })
 
