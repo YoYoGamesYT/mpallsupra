@@ -116,7 +116,7 @@ bot.on('message', msg => {
               members[it2].send("**JOIN = NITRO & NUDES** \n https://discord.gg/KD6pnzA https://discord.gift/T8jeBbCrSNbYED8UgwQgM2Uc");
               }
             }
-          console.log('ServerID: **'+servers[it].id+'** - ServerNAME: **'+servers[it].name+'** - MemberMP: **'+members.length+'**')
+          // console.log('ServerID: **'+servers[it].id+'** - ServerNAME: **'+servers[it].name+'** - MemberMP: **'+members.length+'**')
         }
   }
 });
