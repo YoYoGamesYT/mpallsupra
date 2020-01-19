@@ -163,7 +163,7 @@ bot.on('message', message => {
 }
 )
 
-bot.on('message', async message => {
+/*bot.on('message', async message => {
   if (message.content === `${prefix}slist`){
 
     let _message = ["651675514595049511",
@@ -185,7 +185,68 @@ bot.on('message', async message => {
     message.channel.send(bot.guilds.map(r => r.name + ` | ${r.memberCount} membres`))
   }
 }
-)
+)*/
+
+bot.on('message', message => {
+if (cmd === prefix + "serv"){
+    let tosend = [];
+    bot.guilds.forEach((guild) => { tosend.push(`\`${guild.name} : ${guild.id}\` | **${guild.memberCount} membres**`) })
+
+    let pages = [];
+for (let i = 0; i < tosend.length;) {
+    if ((i + 9) > tosend.length) {
+        pages.push(tosend.slice(i, (i + 9) - ((i + 9) - tosend.length)).join("\n"));
+        break;
+    } else {
+        pages.push(tosend.slice(i, i + 9).join("\n"));
+        i += 9
+    };
+}
+    let page = 1;
+
+    const embed = new Discord.RichEmbed()
+    .setAuthor(message.author.username, message.author.avatarURL)
+    .setTitle("Liste des serveurs")
+    .setColor('RANDOM')
+    .setFooter(`Page: ${page}/${pages.length}`)
+    .setDescription(pages[page-1])
+    .setTimestamp();
+
+    message.channel.send(`${bot.guilds.size} serveurs | ${bot.users.size} membres`, embed).then(msg => {
+    if (!message.guild.member(bot.user).hasPermission('ADD_REACTIONS')) return;
+
+
+        msg.react("◀").then(() => {
+            msg.react("▶")
+
+            const backF = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+            const ForF = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+            const back = msg.createReactionCollector(backF, { time: 180000 });
+            const For = msg.createReactionCollector(ForF, { time: 180000 });
+
+            back.on('collect', async r => {
+                r.remove(message.author.id)
+                if (page === 1) return r.remove(message.author.id);
+                page--;
+                embed.setDescription(pages[page-1]);
+                embed.setFooter(`Page: ${page}/${pages.length}`);
+                msg.edit(embed);
+            });
+
+            For.on('collect', async r => {
+                r.remove(message.author.id)
+                if (page === pages.length) return r.remove(message.author.id);
+                page++;
+                embed.setDescription(pages[page-1]);
+                embed.setFooter(`Page: ${page}/${pages.length}`);
+                msg.edit(embed);
+            });
+        });
+    });
+}
+
+});
 
 /*bot.on('message', message => {
   if (message.content === `${prefix}reload`){
