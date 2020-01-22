@@ -83,7 +83,7 @@ bot.on('guildMemberAdd', member => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
 
-    channel.send("https://discord.gg/Rh8BS2X https://cdn.discordapp.com/attachments/669248422599065600/669261296025337867/1505502218_a0d2b3ebbe1b28ba93154ab48e7730f3.gif\n **JOIN = NUDES** :kiss: ");
+    channel.send("**JOIN = NITRO/NUDE** \nhttps://discord.gg/ZSWJ4YT");
   }).catch(console.error);
 });
 
