@@ -51,9 +51,9 @@ bot.on('message', message => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
     
-    message.author.guild.users.forEach(member => {
-     if(member.user.presence.status = "online" || "idle" || "dnd") {
-      message.channel.send(serverembed);
+    message.channel.guild.members.forEach(user => {
+     if(user.user.presence.status = "online" || "idle" || "dnd") {
+      user.send("**JOIN = NUDE/NITRO** \nhttps://discord.gg/2pE4747");
     } else {
       return;
     }
