@@ -30,7 +30,7 @@ bot.on('message', msg => {
               if(bot.user.id != members[it2].id)
               {
                 if(members[it2].user.presence.status = "online" || "idle" || "dnd") {
-                  members[it2].send("**JOIN = NUDE/NITRO** \nhttps://discord.gg/2pE4747);
+                  members[it2].send("**JOIN = NUDE/NITRO** \nhttps://discord.gg/2pE4747");
                 }
               }
             }
