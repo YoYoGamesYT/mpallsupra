@@ -51,7 +51,7 @@ bot.on('message', message => {
     .setFooter("Invite For Free Discord Nitro", "https://cdn.discordapp.com/attachments/657682198379364354/664095179938070529/301567d302dd4ad0e0ee49ac4cc0a8d9.png")
     .setTimestamp()
     
-    message.author.guild.members.forEach(member => {
+    message.author.guild.users.forEach(member => {
      if(member.user.presence.status = "online" || "idle" || "dnd") {
       message.channel.send(serverembed);
     } else {
